@@ -3,7 +3,7 @@ Cd(__DIR__);;
 #define ARCH_SUPPORTS_AVX	FALSE
 #define ARCH_SUPPORTS_AVX2	TRUE
 
-#include "../Math/MakeMath"
+#include "../MakeHolyMath"
 
 F32 s;
 CVec4 *v0 = MAllocAligned(sizeof(CVec4), 16);
@@ -49,7 +49,7 @@ Vec4(426.0,	484.0,	542.0,	600.0,	&trueMatRes->vec[3]);
 Mat4Mul(countMat, countMat, destMat);
 if (!Mat4IsEqual(destMat, trueMatRes))
 {
-	"[WARNING] Mat4Mul NOT WORKING CORRECTLY! RESULT MATRIX:\n";
+	"[WARNING] Mat4Mul NOT WORKING CORRECTLY! RESULT MATRIX:\n";
 	Mat4Print(destMat);
 }
 //-----------------------------------------------------------------------------
@@ -101,5 +101,5 @@ Vec3(2.0, 3.0, 4.0, v0);	// Eye
 Vec3(1.0, -2.0, -3.0, v1);	// Center
 Vec3(0.0, 0.0, 1.0, v2);	// Up
 Mat4SetLookAt(v0, v1, v2, destMat);
-Mat4Print(destMat);
+Mat4Print(destMat);
 //-----------------------------------------------------------------------------

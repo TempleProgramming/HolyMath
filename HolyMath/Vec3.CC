@@ -77,7 +77,7 @@ asm
 	@brief Copy all members of a vector to destination.
 
 	@param[in]     src	Source
-	@param[in,out] dest	Destination 
+	@param[in,out] dest	Destination 
 */
 _extern _VEC4_COPY U0 Vec3Copy(CVec3 *src, CVec3 *dest);
 
@@ -329,7 +329,7 @@ _VEC3_CROSS::
 //	MOVAPS		XMM3, XMM2
 	DU8			0x0F, 0x28, 0xDA;
 
-//	SHUFPS		XMM0, XMM0, 0xC9 (1, 2, 0, 3) [Ay Az Ax]
+//	SHUFPS		XMM0, XMM0, 0xC9 (1, 2, 0, 3) [Ay Az Ax]
 	DU8			0x0F, 0xC6, 0xC0, 0xC9;
 //	SHUFPS		XMM1, XMM1, 0xD2 (2, 0, 1, 3) [Az Ax Ay]
 	DU8			0x0F, 0xC6, 0xC9, 0xD2;

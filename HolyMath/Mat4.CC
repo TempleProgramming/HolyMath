@@ -201,7 +201,7 @@ _MAT4_MUL::
 	DU8			0x0F, 0x58, 0xC2;
 
 //	MOVAPS		[R15], XMM0
-	DU8			0x41, 0x0F, 0x29, 0x07;
+	DU8			0x41, 0x0F, 0x29, 0x07;
 
 	ADD			R14, 16
 	ADD			R15, 16
@@ -331,7 +331,7 @@ U0 Mat4SetTranslation(F32 x, F32 y, F32 z, CMat4 *dest)
 	@param[in]     z	Z scale.
 	@param[in,out] dest	Destination 4x4 matrix.
 */
-U0 Mat4SetScale(F32 x, F32 y, F32 z, CMat4 *dest)
+U0 Mat4SetScale(F32 x, F32 y, F32 z, CMat4 *dest)
 {
 	dest->e[MAT4_00] = x;
 	dest->e[MAT4_10] = F32_ZERO;

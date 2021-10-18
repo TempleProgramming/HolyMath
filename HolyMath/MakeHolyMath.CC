@@ -1,4 +1,6 @@
-/* Include this file to rebuild the Math library. */
+/* Include this file to rebuild the HolyMath library. */
+
+SettingsPush;
 
 Option(OPTf_WARN_PAREN, ON);
 Option(OPTf_WARN_DUP_TYPES, ON);
@@ -13,8 +15,6 @@ Cd(__DIR__);;
 #include "Vec3"
 #include "Mat4"
 
-#define MATH_COMPILED
+#define HOLYMATH_COMPILED
 
-Option(OPTf_WARN_PAREN, OFF);
-Option(OPTf_WARN_DUP_TYPES, OFF);
-Option(OPTf_WARN_UNUSED_VAR, ON);
+SettingsPop;

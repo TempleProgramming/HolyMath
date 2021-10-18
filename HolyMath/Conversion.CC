@@ -19,7 +19,7 @@ _F64_2_F32::
 	@param[in] d	Double-precision scalar.
 	@return			Single-precision scalar.
 */
-_extern _F64_2_F32 F32 F642F32(F64 d);
+_extern _F64_2_F32 U32 F642F32(F64 d);
 
 asm
 {
@@ -42,7 +42,7 @@ _F32_2_F64::
 	@param[in] f	Single-precision scalar.
 	@return			Double-precision scalar.
 */
-_extern _F32_2_F64 F64 F322F64(F32 f);
+_extern _F32_2_F64 F64 F322F64(U32 f);
 
 asm
 {
@@ -84,7 +84,7 @@ _F32_DEG_2_RAD::
 //	MOVQ		XMM1, RAX
 	DU8			0x66, 0x48, 0x0F, 0x6E, 0xC8;
 //	MULSS		XMM0, XMM1
-	DU8			0xF3, 0x0F, 0x59, 0xC1;
+	DU8			0xF3, 0x0F, 0x59, 0xC1;
 //	MOVQ		RAX, XMM0
 	DU8			0x66, 0x48, 0x0F, 0x7E, 0xC0;
 

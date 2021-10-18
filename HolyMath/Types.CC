@@ -42,7 +42,7 @@ class CVec3
 
 /**
 	@ingroup Math
-	@brief Single-precision floating point 4D vector.
+	@brief Single-precision floating point 4D vector.
 
 	Must be kept on 16-byte alignment in memory.
 */
@@ -96,7 +96,7 @@ union CMat4
 #define AVX_SIZE		8
 
 #define NDARRAY_I32		0
-#define NDARRAY_I64		1
+#define NDARRAY_I64		1
 #define NDARRAY_F32		2
 #define NDARRAY_F64		3
 

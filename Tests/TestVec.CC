@@ -3,7 +3,7 @@ Cd(__DIR__);;
 #define ARCH_SUPPORTS_AVX	TRUE
 #define ARCH_SUPPORTS_AVX2	TRUE
 
-#include "../Math/MakeMath"
+#include "../MakeHolyMath"
 
 F32 s;
 CVec4 *a = MAllocAligned(sizeof(CVec4), 16);
@@ -131,7 +131,7 @@ Vec4(-1.0,-2.5,-3.0,-5.0, trueRes);
 Vec4Min(a, b, dest);
 if(!Vec4IsEqual(dest, trueRes))
 {
-	"[WARNING] Vec4Min NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	"[WARNING] Vec4Min NOT WORKING CORRECTLY! RESULT VECTOR:\n";
 	Vec4Print(dest);
 }
 //-----------------------------------------------------------------------------
@@ -139,7 +139,7 @@ if(!Vec4IsEqual(dest, trueRes))
 
 Vec4(1.25, -2.5, 3.75, -5.0, a);
 Vec4(-1.0, 2.0, -3.0, 4.0, b);
-Vec4(1.25, 2.0, 3.75, 4.0, trueRes);
+Vec4(1.25, 2.0, 3.75, 4.0, trueRes);
 Vec4Max(a, b, dest);
 if (!Vec4IsEqual(dest, trueRes))
 {
