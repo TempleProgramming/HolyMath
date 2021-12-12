@@ -7,7 +7,7 @@
 	@ingroup Math
 	@brief Integer 2D bounding box.
 */
-class CBBox2I
+class CMathBoundingBox2D
 {
 	I32 x0, y0, x1, y1;
 };
@@ -24,7 +24,7 @@ I32 class F32 {};
 
 	Must be kept on 16-byte alignment in memory.
 */
-class CVec2
+class CMathVector2D
 {
 	I32 x, y, z, w;
 };
@@ -35,18 +35,18 @@ class CVec2
 
 	Must be kept on 16-byte alignment in memory.
 */
-class CVec3
+class CMathVector3D
 {
 	I32 x, y, z, w;
 };
 
 /**
 	@ingroup Math
-	@brief Single-precision floating point 4D vector.
+	@brief Single-precision floating point 4D vector.
 
 	Must be kept on 16-byte alignment in memory.
 */
-class CVec4
+class CMathVector4D
 {
 	I32 x, y, z, w;
 };
@@ -57,10 +57,10 @@ class CVec4
 
 	Stored in column-major. Must be kept on 16 byte alignment in memory.
 */
-union CMat4
+union CMathMatrix4D
 {
 	I32 e[16];
-	CVec4 vec[4];
+	CMathVector4D vec[4];
 };
 
 // Commonly used constants
@@ -74,7 +74,7 @@ union CMat4
 #define F32_PI_OVER_2	0x3FC90FDB	// Pi / 2
 #define F32_2_OVER_PI	0x3F22F983	// 2 / Pi
 
-// Indexes into CMat4 element array (CMat4.e[16]).
+// Indexes into CMathMatrix4D element array (CMathMatrix4D.e[16]).
 #define MAT4_00			0
 #define MAT4_01			4
 #define MAT4_02			8
@@ -106,7 +106,7 @@ union CMat4
 
 	Array stored in column-major on 16 byte alignment in memory.
 */
-class CNDArray
+class CMathArray
 {
 	U16 dims;		// Dimensions
 	U16 type;		// See NDARRAY_ macros
@@ -118,10 +118,10 @@ class CNDArray
 	F64 *F64Buf;
 };
 
-CVec4 *gVec4Temp0 = MAllocAligned(sizeof(CVec4), 16);
-CVec4 *gVec4Temp1 = MAllocAligned(sizeof(CVec4), 16);
-CVec4 *gVec4Temp2 = MAllocAligned(sizeof(CVec4), 16);
-CVec4 *gVec4Temp3 = MAllocAligned(sizeof(CVec4), 16);
+CMathVector4D *gVec4Temp0 = MAllocAligned(sizeof(CMathVector4D), 16);
+CMathVector4D *gVec4Temp1 = MAllocAligned(sizeof(CMathVector4D), 16);
+CMathVector4D *gVec4Temp2 = MAllocAligned(sizeof(CMathVector4D), 16);
+CMathVector4D *gVec4Temp3 = MAllocAligned(sizeof(CMathVector4D), 16);
 
-CMat4 *gMat4Temp1 = MAllocAligned(sizeof(CMat4), 16);
-CMat4 *gMat4Temp2 = MAllocAligned(sizeof(CMat4), 16);
+CMathMatrix4D *gMat4Temp1 = MAllocAligned(sizeof(CMathMatrix4D), 16);
+CMathMatrix4D *gMat4Temp2 = MAllocAligned(sizeof(CMathMatrix4D), 16);

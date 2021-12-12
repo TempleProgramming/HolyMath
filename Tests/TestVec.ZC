@@ -1,0 +1,208 @@
+Cd(__DIR__);;
+
+#define ARCH_SUPPORTS_AVX	TRUE
+#define ARCH_SUPPORTS_AVX2	TRUE
+
+#include "../HolyMath/MakeHolyMath"
+
+F32 s;
+CMathVector4D *a = MAllocAligned(sizeof(CMathVector4D), 16);
+CMathVector4D *b = MAllocAligned(sizeof(CMathVector4D), 16);
+CMathVector4D *dest = MAllocAligned(sizeof(CMathVector4D), 16);
+I64 destS;
+CMathVector4D *trueRes = MAllocAligned(sizeof(CMathVector4D), 16);
+
+// Note that some smaller vector functions are identical to larger vector
+// functions so they do not get tested. 
+
+//-----------------------------------------------------------------------------
+// MathVector4DCopy
+
+MathVector4DInit(1.25, 2.5, 3.75, 5.0, a);
+MathVector4DInit(0.0, 0.0, 0.0, 0.0, dest);
+MathVector4DCopy(a, dest);
+if (!MathVector4DIsEqual(a, dest))
+{
+	"[WARNING] MathVector4DCopy NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector4DAdd
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+MathVector4DInit(-1.0, 2.0, -3.0, 4.0, b);
+MathVector4DInit(0.25, -0.5, 0.75, -1.0, trueRes);
+MathVector4DAdd(a, b, dest);
+if (!MathVector4DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector4DAdd NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector4DAddS
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+s = MathF64ToF32(2.0);
+MathVector4DInit(3.25, -0.5, 5.75, -3.0, trueRes);
+MathVector4DAddS(a, s, dest);
+if (!MathVector4DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector4DAddS NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector4DSub
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+MathVector4DInit(-1.0, 2.0, -3.0, 4.0, b);
+MathVector4DInit(2.25, -4.5, 6.75, -9.0, trueRes);
+MathVector4DSub(a, b, dest);
+if (!MathVector4DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector4DSub NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector4DSubS
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+s = MathF64ToF32(2.0);
+MathVector4DInit(-0.75, -4.5, 1.75, -7.0, trueRes);
+MathVector4DSubS(a, s, dest);
+if (!MathVector4DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector4DSubS NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector4DMul
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+MathVector4DInit(-1.0, 2.0, -3.0, 4.0, b);
+MathVector4DInit(-1.25, -5.0, -11.25, -20.0, trueRes);
+MathVector4DMul(a, b, dest);
+if (!MathVector4DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector4DMul NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector4DMulS
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+s = MathF64ToF32(2.0);
+MathVector4DInit(2.5, -5.0, 7.5, -10.0, trueRes);
+MathVector4DMulS(a, s, dest);
+if (!MathVector4DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector4DMulS NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector4DDiv
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+MathVector4DInit(-1.0, 2.0, -3.0, 4.0, b);
+MathVector4DInit(-1.25, -1.25, -1.25, -1.25, trueRes);
+MathVector4DDiv(a, b, dest);
+if (!MathVector4DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector4DDiv NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector4DDivS
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+s = MathF64ToF32(2.0);
+MathVector4DInit(0.625, -1.25, 1.875, -2.5, trueRes);
+MathVector4DDivS(a, s, dest);
+if (!MathVector4DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector4DDivS NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector4DMin
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+MathVector4DInit(-1.0, 2.0, -3.0, 4.0, b);
+MathVector4DInit(-1.0,-2.5,-3.0,-5.0, trueRes);
+MathVector4DMin(a, b, dest);
+if(!MathVector4DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector4DMin NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector4DMax
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+MathVector4DInit(-1.0, 2.0, -3.0, 4.0, b);
+MathVector4DInit(1.25, 2.0, 3.75, 4.0, trueRes);
+MathVector4DMax(a, b, dest);
+if (!MathVector4DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector4DMax NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector4DNegate
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+MathVector4DInit(-1.25, 2.5, -3.75, 5.0, trueRes);
+MathVector4DNegate(a, dest);
+if (!MathVector4DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector4DNegate NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector4DPrint(dest);
+}
+//-----------------------------------------------------------------------------
+// MathVector3DNormalize
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+MathVector3DInit(0.26726124, -0.5345225, 0.80178374, trueRes);
+MathVector3DNormalize(a, dest);
+if (!MathVector3DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector3DNormalize NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector3DPrint(dest);
+}
+
+//-----------------------------------------------------------------------------
+// MathVector3DDot / MathVector4DDot
+
+MathVector4DInit(1.25, -2.5, 3.75, -5.0, a);
+MathVector4DInit(-1.0, 2.0, -3.0, 4.0, b);
+
+s = MathVector3DDot(a, b);
+if (MathF32ToF64(s) != -17.5)
+{
+	"[WARNING] MathVector3DDot NOT WORKING CORRECLTY! RESULT: %n\n", MathF32ToF64(s);
+}
+
+s = MathVector4DDot(a, b);
+if (MathF32ToF64(s) != -37.5)
+{
+	"[WARNING] MathVector4DDot NOT WORKING CORRECTLY! RESULT: %n\n", MathF32ToF64(s);
+}
+//-----------------------------------------------------------------------------
+// MathVector3DCross
+
+MathVector4DInit(1.0, 2.0, 3.0, -5.0, a);
+MathVector4DInit(1.5, -4.5, 2.5, 4.0, b);
+MathVector3DInit(18.5, 2.0, -7.5, trueRes);
+
+MathVector3DCross(a, b, dest);
+if (!MathVector3DIsEqual(dest, trueRes))
+{
+	"[WARNING] MathVector3DCross NOT WORKING CORRECTLY! RESULT VECTOR:\n";
+	MathVector3DPrint(dest);
+} 
+//-----------------------------------------------------------------------------
+
+Free(a);
+Free(b);
+Free(dest);
+Free(trueRes);
+

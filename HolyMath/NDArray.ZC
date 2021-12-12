@@ -3,12 +3,12 @@
 	@ingroup Math
 	@brief Initialize n-dimensional array.
 
-	@param[in,out] arr		NDArray array to initialize.
-	@param[in]     type		Type of NDArray, see NDARRAY_ macros.
+	@param[in,out] arr		MathArray array to initialize.
+	@param[in]     type		Type of MathArray, see NDARRAY_ macros.
 	@param[in]     clear	Whether the clear the initialized array with zeros.
 	@param[in]     ...		List of lengths for each dimension.
 */
-U0 NDArrayInit(CNDArray *arr, U16 type, Bool clear, ...)
+U0 MathArrayInit(CMathArray *arr, U16 type, Bool clear, ...)
 {
 	I64 i;
 
@@ -59,9 +59,9 @@ U0 NDArrayInit(CNDArray *arr, U16 type, Bool clear, ...)
 	@ingroup Math
 	@brief Free n-dimensional array.
 
-	@param[in,out] arr	NDArray to free.
+	@param[in,out] arr	MathArray to free.
 */
-U0 NDArrayFree(CNDArray *arr)
+U0 MathArrayFree(CMathArray *arr)
 {
 	Free(arr->dimLens);
 
@@ -80,7 +80,7 @@ U0 NDArrayFree(CNDArray *arr)
 		break;
 
 		case NDARRAY_F64:
-			Free(arr->F64Buf);
+			Free(arr->F64Buf);
 		break;
 	}
 }
