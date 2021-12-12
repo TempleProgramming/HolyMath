@@ -1,7 +1,7 @@
 
 asm
 {
-_VEC3::
+_MATH_VECTOR_3D_INIT::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -28,7 +28,7 @@ _VEC3::
 	@param[in]     z	Z component.
 	@param[in,out] dest	Destination
 */
-_extern _VEC3 U0 Vec3(F64 x, F64 y, F64 z, CVec3 *dest);
+_extern _MATH_VECTOR_3D_INIT U0 MathVector3DInit(F64 x, F64 y, F64 z, CMathVector3D *dest);
 
 /**
 	@ingroup Math
@@ -36,7 +36,7 @@ _extern _VEC3 U0 Vec3(F64 x, F64 y, F64 z, CVec3 *dest);
 
 	@param[in] v	Vector
 */
-U0 Vec3Print(CVec3 *v)
+U0 MathVector3DPrint(CMathVector3D *v)
 {
 	U8 reg R15 str = "%n\t%n\t%n\n\n";
 asm
@@ -67,11 +67,11 @@ asm
 	@param[in]     src	Source
 	@param[in,out] dest	Destination 
 */
-_extern _VEC4_COPY U0 Vec3Copy(CVec3 *src, CVec3 *dest);
+_extern _MATH_VECTOR_4D_COPY U0 MathVector3DCopy(CMathVector3D *src, CMathVector3D *dest);
 
 asm
 {
-_VEC3_IS_EQUAL::
+_MATH_VECTOR_3D_IS_EQUAL::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -101,7 +101,7 @@ _return:
 	@param[in] a	Vector 1
 	@param[in] b	Vector 2
 */
-_extern _VEC3_IS_EQUAL Bool Vec3IsEqual(CVec3 *a, CVec3 *b);
+_extern _MATH_VECTOR_3D_IS_EQUAL Bool MathVector3DIsEqual(CMathVector3D *a, CMathVector3D *b);
 
 /**
 	@ingroup Math
@@ -111,7 +111,7 @@ _extern _VEC3_IS_EQUAL Bool Vec3IsEqual(CVec3 *a, CVec3 *b);
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_ADD U0 Vec3Add(CVec3 *a, CVec3 *b, CVec3 *dest);
+_extern _MATH_VECTOR_4D_ADD U0 MathVector3DAdd(CMathVector3D *a, CMathVector3D *b, CMathVector3D *dest);
 
 /**
 	@ingroup Math
@@ -121,7 +121,7 @@ _extern _VEC4_ADD U0 Vec3Add(CVec3 *a, CVec3 *b, CVec3 *dest);
 	@param[in]     s	Scalar
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_ADDS U0 Vec3AddS(CVec3 *v, I32 *s, CVec3 *dest);
+_extern _MATH_VECTOR_4D_ADDS U0 MathVector3DAddS(CMathVector3D *v, I32 *s, CMathVector3D *dest);
 
 /**
 	@ingroup Math
@@ -131,7 +131,7 @@ _extern _VEC4_ADDS U0 Vec3AddS(CVec3 *v, I32 *s, CVec3 *dest);
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_SUB U0 Vec3Sub(CVec3 *a, CVec3 *b, CVec3 *dest);
+_extern _MATH_VECTOR_4D_SUB U0 MathVector3DSub(CMathVector3D *a, CMathVector3D *b, CMathVector3D *dest);
 
 /**
 	@ingroup Math
@@ -141,7 +141,7 @@ _extern _VEC4_SUB U0 Vec3Sub(CVec3 *a, CVec3 *b, CVec3 *dest);
 	@param[in]     s	Scalar
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_SUBS U0 Vec3SubS(CVec3 *v, I32 *s, CVec3 *dest);
+_extern _MATH_VECTOR_4D_SUBS U0 MathVector3DSubS(CMathVector3D *v, I32 *s, CMathVector3D *dest);
 
 /**
 	@ingroup Math
@@ -151,7 +151,7 @@ _extern _VEC4_SUBS U0 Vec3SubS(CVec3 *v, I32 *s, CVec3 *dest);
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_MUL U0 Vec3Mul(CVec3 *a, CVec3 *b, CVec3 *dest);
+_extern _MATH_VECTOR_4D_MUL U0 MathVector3DMul(CMathVector3D *a, CMathVector3D *b, CMathVector3D *dest);
 
 /**
 	@ingroup Math
@@ -161,7 +161,7 @@ _extern _VEC4_MUL U0 Vec3Mul(CVec3 *a, CVec3 *b, CVec3 *dest);
 	@param[in]     s	Scalar
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_MULS U0 Vec3MulS(CVec3 *v, I32 *s, CVec3 *dest);
+_extern _MATH_VECTOR_4D_MULS U0 MathVector3DMulS(CMathVector3D *v, I32 *s, CMathVector3D *dest);
 
 /**
 	@ingroup Math
@@ -171,7 +171,7 @@ _extern _VEC4_MULS U0 Vec3MulS(CVec3 *v, I32 *s, CVec3 *dest);
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_DIV U0 Vec3Div(CVec3 *a, CVec3 *b, CVec3 *dest);
+_extern _MATH_VECTOR_4D_DIV U0 MathVector3DDiv(CMathVector3D *a, CMathVector3D *b, CMathVector3D *dest);
 
 /**
 	@ingroup Math
@@ -181,7 +181,7 @@ _extern _VEC4_DIV U0 Vec3Div(CVec3 *a, CVec3 *b, CVec3 *dest);
 	@param[in]     s	Scalar
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_DIVS U0 Vec3DivS(CVec3 *v, I32 *s, CVec3 *dest);
+_extern _MATH_VECTOR_4D_DIVS U0 MathVector3DDivS(CMathVector3D *v, I32 *s, CMathVector3D *dest);
 
 /**
 	@ingroup Math
@@ -191,7 +191,7 @@ _extern _VEC4_DIVS U0 Vec3DivS(CVec3 *v, I32 *s, CVec3 *dest);
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_MIN U0 Vec3Min(CVec3 *a, CVec3 *b, CVec3 *dest);
+_extern _MATH_VECTOR_4D_MIN U0 MathVector3DMin(CMathVector3D *a, CMathVector3D *b, CMathVector3D *dest);
 
 /**
 	@ingroup Math
@@ -201,7 +201,7 @@ _extern _VEC4_MIN U0 Vec3Min(CVec3 *a, CVec3 *b, CVec3 *dest);
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_MAX U0 Vec3Max(CVec3 *a, CVec3 *b, CVec3 *dest);
+_extern _MATH_VECTOR_4D_MAX U0 MathVector3DMax(CMathVector3D *a, CMathVector3D *b, CMathVector3D *dest);
 
 /**
 	@ingroup Math
@@ -210,11 +210,11 @@ _extern _VEC4_MAX U0 Vec3Max(CVec3 *a, CVec3 *b, CVec3 *dest);
 	@param[in]     v	Vector
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_NEGATE U0 Vec3Negate(CVec3 *v, CVec3 *dest);
+_extern _MATH_VECTOR_4D_NEGATE U0 MathVector3DNegate(CMathVector3D *v, CMathVector3D *dest);
 
 asm
 {
-_VEC3_NORMALIZE::
+_MATH_VECTOR_3D_NORMALIZE::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -244,11 +244,11 @@ _VEC3_NORMALIZE::
 	@param[in]     v	Vector
 	@param[in,out] dest	Destination
 */
-_extern _VEC3_NORMALIZE U0 Vec3Normalize(CVec3 *v, CVec3 *dest);
+_extern _MATH_VECTOR_3D_NORMALIZE U0 MathVector3DNormalize(CMathVector3D *v, CMathVector3D *dest);
 
 asm
 {
-_VEC3_DOT::
+_MATH_VECTOR_3D_DOT::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -275,11 +275,11 @@ _VEC3_DOT::
 	@param[in]     b	Vector 2
 	@return				Dot product.
 */
-_extern _VEC3_DOT I32 Vec3Dot(CVec3 *a, CVec3 *b);
+_extern _MATH_VECTOR_3D_DOT I32 MathVector3DDot(CMathVector3D *a, CMathVector3D *b);
 
 asm
 {
-_VEC3_CROSS::
+_MATH_VECTOR_3D_CROSS::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -313,7 +313,7 @@ _VEC3_CROSS::
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC3_CROSS U0 Vec3Cross(CVec3 *a, CVec3 *b, CVec3 *dest);
+_extern _MATH_VECTOR_3D_CROSS U0 MathVector3DCross(CMathVector3D *a, CMathVector3D *b, CMathVector3D *dest);
 
 
 

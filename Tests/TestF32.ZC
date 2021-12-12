@@ -2,17 +2,17 @@
 Cd(__DIR__);;
 
 //-----------------------------------------------------------------------------
-// F32Cos
+// MathF32Cos
 /* This test depends on the HolyGL library for graphing. */
 
-F32 q0 = F32Cos(F642F32(0.785398));
-F32 q1 = F32Cos(F642F32(2.35619));
-F32 q2 = F32Cos(F642F32(3.92699));
-F32 q3 = F32Cos(F642F32(5.49779));
-"Cos(45deg)  F32Cos: %n | Cos: %n\n", F322F64(q0), Cos(0.785398);
-"Cos(135deg) F32Cos: %n | Cos: %n\n", F322F64(q1), Cos(2.35619);
-"Cos(225deg) F32Cos: %n | Cos: %n\n", F322F64(q2), Cos(3.92699);
-"Cos(315deg) F32Cos: %n | Cos: %n\n", F322F64(q3), Cos(5.49779);
+F32 q0 = MathF32Cos(MathF64ToF32(0.785398));
+F32 q1 = MathF32Cos(MathF64ToF32(2.35619));
+F32 q2 = MathF32Cos(MathF64ToF32(3.92699));
+F32 q3 = MathF32Cos(MathF64ToF32(5.49779));
+"Cos(45deg)  MathF32Cos: %n | Cos: %n\n", MathF32ToF64(q0), Cos(0.785398);
+"Cos(135deg) MathF32Cos: %n | Cos: %n\n", MathF32ToF64(q1), Cos(2.35619);
+"Cos(225deg) MathF32Cos: %n | Cos: %n\n", MathF32ToF64(q2), Cos(3.92699);
+"Cos(315deg) MathF32Cos: %n | Cos: %n\n", MathF32ToF64(q3), Cos(5.49779);
 
 CGLTex2D graph;
 GLTex2DInit(&graph, GL_TEX2D_RAW, 600, 512);
@@ -40,7 +40,7 @@ for (i = 0; i < 600; i++)
 	result += 256;
 	GLDrawPixel(i, result, 0xFF0000);
 
-	result = F322F64(F32Cos(F642F32(angle)));
+	result = MathF32ToF64(MathF32Cos(MathF64ToF32(angle)));
 	result *= -100.0;
 	result += 256;
 	GLDrawPixel(i, result, 0x0000FF);

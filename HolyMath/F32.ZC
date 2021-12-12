@@ -15,7 +15,7 @@ F64 F64_QUADRANT_CONSTANT_ARRAY[2] = {0, ã};
 
 asm
 {
-_F32_COS::
+_MATH_F32_COS::
 	PUSH		RBP
 	MOV			RBP, RSP
 	PUSH		RBX
@@ -133,4 +133,4 @@ _F32_COS::
 	@param[in] theta	Angle in radians.
 	@return				sin(theta).
 */
-_extern _F32_COS F32 F32Cos(F32 theta);
+_extern _MATH_F32_COS F32 MathF32Cos(F32 theta);

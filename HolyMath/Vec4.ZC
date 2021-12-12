@@ -1,7 +1,7 @@
 
 asm
 {
-_VEC4::
+_MATH_VECTOR_4D_INIT::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -31,9 +31,9 @@ _VEC4::
 	@param[in]     z	Z component.
 	@param[in,out] dest	Destination
 */
-_extern _VEC4 U0 Vec4(F64 x, F64 y, F64 z, F64 w, CVec4 *dest);
+_extern _MATH_VECTOR_4D_INIT U0 MathVector4DInit(F64 x, F64 y, F64 z, F64 w, CMathVector4D *dest);
 
-#define VEC4_STR "%n\t%n\t%n\t%n\n\n"
+#define MATH_VECTOR_4D_STR "%n\t%n\t%n\t%n\n\n"
 
 /**
 	@ingroup gfxmath
@@ -41,7 +41,7 @@ _extern _VEC4 U0 Vec4(F64 x, F64 y, F64 z, F64 w, CVec4 *dest);
 
 	@param[in] v	Vector
 */
-U0 Vec4Print(CVec4 *v)
+U0 MathVector4DPrint(CMathVector4D *v)
 {
 	U8 reg R15 str = "%n\t%n\t%n\t%n\n\n";
 asm
@@ -70,7 +70,7 @@ asm
 
 asm
 {
-_VEC4_COPY::
+_MATH_VECTOR_4D_COPY::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -89,11 +89,11 @@ _VEC4_COPY::
 	@param[in]     src	Source
 	@param[in,out] dest	Destination 
 */
-_extern _VEC4_COPY U0 Vec4Copy(CVec4 *src, CVec4 *dest);
+_extern _MATH_VECTOR_4D_COPY U0 MathVector4DCopy(CMathVector4D *src, CMathVector4D *dest);
 
 asm
 {
-_VEC4_IS_EQUAL::
+_MATH_VECTOR_4D_IS_EQUAL::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -125,11 +125,11 @@ _return:
 	@param[in] b	Vector 2
 	@return			TRUE if equal.
 */
-_extern _VEC4_IS_EQUAL Bool Vec4IsEqual(CVec4 *a, CVec4 *b);
+_extern _MATH_VECTOR_4D_IS_EQUAL Bool MathVector4DIsEqual(CMathVector4D *a, CMathVector4D *b);
 
 asm
 {
-_VEC4_ADD::
+_MATH_VECTOR_4D_ADD::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -152,11 +152,11 @@ _VEC4_ADD::
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_ADD U0 Vec4Add(CVec4 *a, CVec4 *b, CVec4 *dest);
+_extern _MATH_VECTOR_4D_ADD U0 MathVector4DAdd(CMathVector4D *a, CMathVector4D *b, CMathVector4D *dest);
 
 asm
 {
-_VEC4_ADDS::
+_MATH_VECTOR_4D_ADDS::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -179,11 +179,11 @@ _VEC4_ADDS::
 	@param[in]     s	Scalar
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_ADDS U0 Vec4AddS(CVec4 *v, F32 *s, CVec4 *dest);
+_extern _MATH_VECTOR_4D_ADDS U0 MathVector4DAddS(CMathVector4D *v, F32 *s, CMathVector4D *dest);
 
 asm
 {
-_VEC4_SUB::
+_MATH_VECTOR_4D_SUB::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -206,11 +206,11 @@ _VEC4_SUB::
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_SUB U0 Vec4Sub(CVec4 *a, CVec4 *b, CVec4 *dest);
+_extern _MATH_VECTOR_4D_SUB U0 MathVector4DSub(CMathVector4D *a, CMathVector4D *b, CMathVector4D *dest);
 
 asm
 {
-_VEC4_SUBS::
+_MATH_VECTOR_4D_SUBS::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -233,11 +233,11 @@ _VEC4_SUBS::
 	@param[in]     s	Scalar
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_SUBS U0 Vec4SubS(CVec4 *v, F32 *s, CVec4 *dest);
+_extern _MATH_VECTOR_4D_SUBS U0 MathVector4DSubS(CMathVector4D *v, F32 *s, CMathVector4D *dest);
 
 asm
 {
-_VEC4_MUL::
+_MATH_VECTOR_4D_MUL::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -260,11 +260,11 @@ _VEC4_MUL::
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_MUL U0 Vec4Mul(CVec4 *a, CVec4 *b, CVec4 *dest);
+_extern _MATH_VECTOR_4D_MUL U0 MathVector4DMul(CMathVector4D *a, CMathVector4D *b, CMathVector4D *dest);
 
 asm
 {
-_VEC4_MULS::
+_MATH_VECTOR_4D_MULS::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -287,12 +287,12 @@ _VEC4_MULS::
 	@param[in]     s	Scalar
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_MULS U0 Vec4MulS(CVec4 *v, F32 *s, CVec4 *dest);
+_extern _MATH_VECTOR_4D_MULS U0 MathVector4DMulS(CMathVector4D *v, F32 *s, CMathVector4D *dest);
 
 
 asm
 {
-_VEC4_DIV::
+_MATH_VECTOR_4D_DIV::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -315,11 +315,11 @@ _VEC4_DIV::
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_DIV U0 Vec4Div(CVec4 *a, CVec4 *b, CVec4 *dest);
+_extern _MATH_VECTOR_4D_DIV U0 MathVector4DDiv(CMathVector4D *a, CMathVector4D *b, CMathVector4D *dest);
 
 asm
 {
-_VEC4_DIVS::
+_MATH_VECTOR_4D_DIVS::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -342,11 +342,11 @@ _VEC4_DIVS::
 	@param[in]     s	Scalar
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_DIVS U0 Vec4DivS(CVec4 *v, F32 *s, CVec4 *dest);
+_extern _MATH_VECTOR_4D_DIVS U0 MathVector4DDivS(CMathVector4D *v, F32 *s, CMathVector4D *dest);
 
 asm
 {
-_VEC4_MIN::
+_MATH_VECTOR_4D_MIN::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -369,11 +369,11 @@ _VEC4_MIN::
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_MIN U0 Vec4Min(CVec4 *a, CVec4 *b, CVec4 *dest);
+_extern _MATH_VECTOR_4D_MIN U0 MathVector4DMin(CMathVector4D *a, CMathVector4D *b, CMathVector4D *dest);
 
 asm
 {
-_VEC4_MAX::
+_MATH_VECTOR_4D_MAX::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -397,11 +397,11 @@ _VEC4_MAX::
 	@param[in]     b	Vector 2
 	@param[in,out] dest	Destination 
 */
-_extern _VEC4_MAX U0 Vec4Max(CVec4 *a, CVec4 *b, CVec4 *dest);
+_extern _MATH_VECTOR_4D_MAX U0 MathVector4DMax(CMathVector4D *a, CMathVector4D *b, CMathVector4D *dest);
 
 asm
 {
-_VEC4_NEGATE::
+_MATH_VECTOR_4D_NEGATE::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -422,11 +422,11 @@ _VEC4_NEGATE::
 	@param[in]     v	Vector
 	@param[in,out] dest	Destination
 */
-_extern _VEC4_NEGATE U0 Vec4Negate(CVec4 *v, CVec4 *dest);
+_extern _MATH_VECTOR_4D_NEGATE U0 MathVector4DNegate(CMathVector4D *v, CMathVector4D *dest);
 
 asm
 {
-_VEC4_DOT::
+_MATH_VECTOR_4D_DOT::
 	PUSH		RBP
 	MOV			RBP, RSP
 
@@ -454,5 +454,5 @@ _VEC4_DOT::
 	@param[in]     b	Vector 2
 	@return				Dot product.
 */
-_extern _VEC4_DOT I32 Vec4Dot(CVec4 *a, CVec4 *b);
+_extern _MATH_VECTOR_4D_DOT I32 MathVector4DDot(CMathVector4D *a, CMathVector4D *b);
 
