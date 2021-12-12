@@ -42,7 +42,7 @@ class CVec3
 
 /**
 	@ingroup Math
-	@brief Single-precision floating point 4D vector.
+	@brief Single-precision floating point 4D vector.
 
 	Must be kept on 16-byte alignment in memory.
 */

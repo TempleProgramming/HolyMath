@@ -80,7 +80,7 @@ U0 NDArrayFree(CNDArray *arr)
 		break;
 
 		case NDARRAY_F64:
-			Free(arr->F64Buf);
+			Free(arr->F64Buf);
 		break;
 	}
 }
